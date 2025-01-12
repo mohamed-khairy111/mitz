@@ -1,5 +1,5 @@
 axios
-  .get('https://tarmeezacademy.com/api/v1/posts?limit=50')
+  .get('https://tarmeezacademy.com/api/v1/posts?limit=2')
   .then((response) => {
     const posts = response.data.data;
     document.getElementById('cards').innerHTML = '';
