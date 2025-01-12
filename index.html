@@ -42,7 +42,7 @@
                 <label for="recipient-name" class="col-form-label"
                   >username:</label
                 >
-                <input type="text" class="form-control" id="recipient-name" />
+                <input type="text" class="form-control" id="username-input" />
               </div>
               <div class="mb-3">
                 <label for="message-text" class="col-form-label"
@@ -51,7 +51,7 @@
                 <input
                   type="password"
                   class="form-control"
-                  id="recipient-name"
+                  id="password-input"
                 />
               </div>
             </form>
@@ -64,7 +64,13 @@
             >
               Close
             </button>
-            <button type="button" class="btn btn-primary">Login</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              onclick="loginBtnClicked()"
+            >
+              Login
+            </button>
           </div>
         </div>
       </div>

@@ -1,12 +1,12 @@
-axios
-  .get('https://tarmeezacademy.com/api/v1/posts?limit=2')
-  .then((response) => {
-    const posts = response.data.data;
-    document.getElementById('cards').innerHTML = '';
-    for (p of posts) {
-      console.log(p);
-      const author = p.author;
-      let content = ` <div class="card">
+const baseURL = 'https://tarmeezacademy.com/api/v1';
+
+axios.get(`${baseURL}/posts?limit=2`).then((response) => {
+  const posts = response.data.data;
+  document.getElementById('cards').innerHTML = '';
+  for (p of posts) {
+    console.log(p);
+    const author = p.author;
+    let content = ` <div class="card">
               <div class="card-header">
                 <img
                   class="rounded-circle border border-2"
@@ -48,6 +48,21 @@ axios
               </div>
             </div>`;
 
-      document.getElementById('cards').innerHTML += content;
-    }
+    document.getElementById('cards').innerHTML += content;
+  }
+});
+
+function loginBtnClicked() {
+  const username = document.getElementById('username-input').value;
+  const password = document.getElementById('password-input').value;
+
+  const params = {
+    username: username,
+    password: password,
+  };
+
+  const url = `${baseURL}/login`;
+  axios.post(url, params).then((response) => {
+    console.log(response.data);
   });
+}
