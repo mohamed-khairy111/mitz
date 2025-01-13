@@ -65,5 +65,46 @@ function loginBtnClicked() {
   axios.post(url, params).then((response) => {
     localStorage.setItem('token', response.data.token);
     localStorage.setItem('user', JSON.stringify(response.data.user));
+
+    const modal = document.getElementById('login-modal');
+    const modalInstance = bootstrap.Modal.getInstance(modal);
+
+    modalInstance.hide();
   });
+}
+
+function showSuccessAlert() {
+  const alertPlaceholder = document.getElementById('success-alert');
+  const appendAlert = (message, type) => {
+    const wrapper = document.createElement('div');
+    wrapper.innerHTML = [
+      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+      `   <div>${message}</div>`,
+      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+      '</div>',
+    ].join('');
+
+    alertPlaceholder.append(wrapper);
+  };
+
+  const alertTrigger = document.getElementById('liveAlertBtn');
+  if (alertTrigger) {
+    alertTrigger.addEventListener('click', () => {
+      appendAlert('Nice, you triggered this alert message!', 'success');
+    });
+  }
+}
+
+function setupUI() {
+  const token = localStorage.getItem('token');
+
+  const loginBtn = document.getElementById('login-btn');
+  const registerBtn = document.getElementById('register-btn');
+
+  if (token == null) {
+    // user is guest not logged in
+  } else {
+    loginBtn.style.visibility = 'hidden';
+    registerBtn.style.visibility = 'hidden';
+  }
 }

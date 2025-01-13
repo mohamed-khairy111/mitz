@@ -20,7 +20,7 @@
     <!--LOGIN MODAL-->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="login-modal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -77,6 +77,10 @@
     </div>
     <!--/LOGIN MODAL/-->
 
+    <!--============ALERTS=============== -->
+    <div id="success-alert"></div>
+    <!--============ALERTS=============== -->
+
     <!--===============MODALS===============-->
     <!-- NAVIGATION BAR CONTAINER-->
     <div class="container">
@@ -109,14 +113,19 @@
                 </ul>
                 <div class="d-flex w-100 justify-content-end">
                   <button
+                    id="login-btn"
                     type="button"
                     class="btn btn-outline-success mx-2"
                     data-bs-toggle="modal"
-                    data-bs-target="#exampleModal"
+                    data-bs-target="#login-modal"
                   >
                     Login
                   </button>
-                  <button type="button" class="btn btn-outline-success">
+                  <button
+                    id="register-btn"
+                    type="button"
+                    class="btn btn-outline-success"
+                  >
                     Register
                   </button>
                 </div>
