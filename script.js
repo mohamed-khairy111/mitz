@@ -108,3 +108,5 @@ function setupUI() {
     registerBtn.style.visibility = 'hidden';
   }
 }
+
+setupUI();
